@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 p-0">
+            <div class="jumbotron min-vh-100 text-center m-0 bg-light d-flex flex-column justify-content-center">
+                <h1 class="display-4 font-weight-bold">Welcome to RAPIDCARGO</h1>
+                <p class="lead">Please select an option.</p>
+                <div class="row d-flex justify-content-center">
+                    <div ngbDropdown class="d-inline-block mr-4">
+                        <button class="btn btn-primary btn-lg" id="dropdownBasic1" ngbDropdownToggle>Declare movement</button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                            <button ngbDropdownItem routerLink="/input">Input</button>
+                            <button ngbDropdownItem routerLink="/output">Output</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg" routerLink="/history">Movement history</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

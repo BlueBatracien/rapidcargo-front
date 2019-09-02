@@ -1,0 +1,44 @@
+<div class="container-fluid col-lg-10">
+    <div class="row d-flex justify-content-start">
+        <div class="col-lg-3">
+            <button class="btn btn-outline-secondary mr-2 mb-5 mt-5" (click)="goBack()">BACK</button>
+            <button class="btn btn-primary mb-5 mt-5" routerLink="/home">HOME</button>            
+        </div>
+        <div class="col-lg-6 text-center">
+            <h1 class="font-weight-bold mt-5 mb-2">RAPIDCARGO - Movement history</h1>
+            <h3 class="mb-5">Last created movements</h3>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+
+    <!-- Make teble sortable -->
+    <div class="row d-flex justify-content-center align-self-center">
+        <h2 *ngIf="movements==null || movements.length==0">No movements</h2>
+        <table class="table table-striped" *ngIf="movements!=null && movements.length > 0">
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">From</th>
+                    <th scope="col">To</th>
+                    <th scope="col">Reference</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Weight</th>
+                    <th scope="col">Customs status</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let mv of movements">
+                    <td>{{toDate(mv.creationDate)}}</td>
+                    <td>{{mv.type.toUpperCase()}}</td>
+                    <td>{{mv.originalWarehouse.code}}</td>
+                    <td>{{mv.destinationWarehouse.code}}</td>
+                    <td>{{mv.merchandiseInfo.referenceType.name}} {{mv.merchandiseInfo.reference}}</td>
+                    <td>{{mv.merchandiseInfo.quantity}}</td>
+                    <td>{{mv.merchandiseInfo.weight}}</td>
+                    <td>{{mv.customs.status}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
